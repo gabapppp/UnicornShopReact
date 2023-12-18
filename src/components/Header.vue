@@ -1,6 +1,7 @@
 <script>
 import IconCart from './icons/IconCart.vue'
 import IconSearch from './icons/IconSearch.vue'
+import IconAvatar from './icons/IconAvatar.vue'
 </script>
 <template>
     <header class="bg-white">
@@ -65,20 +66,22 @@ import IconSearch from './icons/IconSearch.vue'
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Tops</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Bottoms</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Kids</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Accesscories</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Accessories</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Collections</a>
                  <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Sale</a>
             </PopoverGroup>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end  space-x-4 space-x-reverse">
                 <a href="#" class="text-sm -m-1.5 p-1.5">
                     <IconSearch />
                 </a>
                 <a href="#" class="text-sm -m-1.5 p-1.5">
-                    <IconCart />
+                    <IconCart/>
+                </a>
+                <a href="#" class="hidden text-sm -m-1.5 p-1.5">
+                    <IconAvatar />
                 </a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
                         aria-hidden="true">&rarr;</span></a>
-                 
             </div>
         </nav>
         <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -87,7 +90,7 @@ import IconSearch from './icons/IconSearch.vue'
                 class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                 <div class="flex items-center justify-between">
                     <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
+                        <span class="sr-only">Unicorn</span>
                         <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                             alt="" />
                     </a>
@@ -99,6 +102,7 @@ import IconSearch from './icons/IconSearch.vue'
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-2 py-6">
+                            <!--
                             <Disclosure as="div" class="-mx-3" v-slot="{ open }">
                                 <DisclosureButton
                                     class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
@@ -112,18 +116,29 @@ import IconSearch from './icons/IconSearch.vue'
                                         class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                                         {{ item.name }}</DisclosureButton>
                                 </DisclosurePanel>
-                            </Disclosure>
+                            </Disclosure>   
+                            -->
                             <a href="#"
-                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">New</a>
                             <a href="#"
-                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Tops</a>
                             <a href="#"
-                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Bottoms</a>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Accessories</a>
+                                    <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Collections</a>
+                                    <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sales</a>
                         </div>
                         <div class="py-6">
                             <a href="#"
-                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                                in</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Search</a>
+                            <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Cart</a>
+                            <a href="/login"
+                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                           
                         </div>
                     </div>
                 </div>
