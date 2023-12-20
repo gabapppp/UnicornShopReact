@@ -26,21 +26,10 @@
             enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
             leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
             <PopoverPanel
-
               class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
               <div class="p-2">
                 <div v-for="item in MenProducts" :key="item.name"
                   class="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50">
-
-              class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
-            >
-              <div class="p-2">
-                <div
-                  v-for="item in MenProducts"
-                  :key="item.name"
-                  class="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                >
-
                   <div
                     class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                     <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -55,27 +44,10 @@
                   </div>
                 </div>
               </div>
-
               <div class="divide-x divide-gray-900/5 bg-gray-50">
                 <a v-for="item in MenCallsToAction" :key="item.name" :href="item.href"
                   class="flex items-center justify-center gap-x-2.5 p-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
                   <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-
-              <div
-                class="divide-x divide-gray-900/5 bg-gray-50"
-              >
-                <a
-                  v-for="item in MenCallsToAction"
-                  :key="item.name"
-                  :href="item.href"
-                  class="flex items-center justify-center gap-x-2.5 p-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                >
-                  <component
-                    :is="item.icon"
-                    class="h-5 w-5 flex-none text-gray-400"
-                    aria-hidden="true"
-                  />
-
                   {{ item.name }}
                 </a>
               </div>
@@ -96,12 +68,6 @@
               <div class="p-4">
                 <div v-for="item in WomenProducts" :key="item.name"
                   class="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50">
-                <div
-                  v-for="item in WomenProducts"
-                  :key="item.name"
-                  class="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                >
-
                   <div
                     class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                     <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -116,27 +82,10 @@
                   </div>
                 </div>
               </div>
-
               <div class="divide-x divide-gray-900/5 bg-gray-50">
                 <a v-for="item in WomenCallsToAction" :key="item.name" :href="item.href"
                   class="flex items-center justify-center gap-x-2.5 p-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
                   <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-
-              <div
-                class="divide-x divide-gray-900/5 bg-gray-50"
-              >
-                <a
-                  v-for="item in WomenCallsToAction"
-                  :key="item.name"
-                  :href="item.href"
-                  class="flex items-center justify-center gap-x-2.5 p-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                >
-                  <component
-                    :is="item.icon"
-                    class="h-5 w-5 flex-none text-gray-400"
-                    aria-hidden="true"
-                  />
-
                   {{ item.name }}
                 </a>
               </div>
@@ -212,17 +161,9 @@
             </PopoverPanel>
           </transition>
         </Popover> -->
-
-        <a href="/sale" class="text-sm font-semibold leading-6 text-gray-900"
-          >New Arrival</a
-        >
-        <a href="/sale" class="text-sm font-semibold leading-6 text-gray-900"
-          >Sales</a
-        >
-        <a href="/about" class="text-sm font-semibold leading-6 text-gray-900"
-          >About Us</a
-        >
-
+        <a href="/sale" class="text-sm font-semibold leading-6 text-gray-900">New Arrival</a>
+        <a href="/sale" class="text-sm font-semibold leading-6 text-gray-900">Sales</a>
+        <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About Us</a>
       </PopoverGroup>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end space-x-4 space-x-reverse">
         <a href="#" class="text-sm -m-1.5 p-1.5">
@@ -329,6 +270,17 @@ import IconSearch from "./icons/IconSearch.vue";
 import IconAvatar from "./icons/IconAvatar.vue";
 import { ref } from "vue";
 import {
+  Dialog,
+  DialogPanel,
+  Disclosure,
+  DisclosurePanel,
+  DisclosureButton,
+  Popover,
+  PopoverGroup,
+  PopoverPanel,
+  PopoverButton
+} from "@headlessui/vue"
+import {
   ArrowPathIcon,
   Bars3Icon,
   ChartPieIcon,
@@ -340,10 +292,8 @@ import {
 } from "@heroicons/vue/24/outline";
 import {
   ChevronDownIcon,
-
-//   PhoneIcon,
-//   PlayCircleIcon,
-
+  //   PhoneIcon,
+  //   PlayCircleIcon,
 } from "@heroicons/vue/20/solid";
 
 const MenProducts = [
@@ -365,6 +315,7 @@ const MenProducts = [
     href: "#",
     icon: ArrowPathIcon,
   },
+
   {
     name: "Sweaters",
     // description: "Build strategic funnels that will convert",
@@ -389,6 +340,7 @@ const MenProducts = [
     href: "#",
     icon: ArrowPathIcon,
   },
+
 ];
 const MenCallsToAction = [
   { name: "All Men Product", href: "#", icon: ArrowRightCircleIcon },
@@ -449,22 +401,11 @@ const WomenProducts = [
     href: "#",
     icon: ArrowPathIcon,
   },
+
 ];
 const WomenCallsToAction = [
   { name: "All Women Product", href: "#", icon: ArrowRightCircleIcon },
 ];
 
 const mobileMenuOpen = ref(false);
-
-import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  DisclosurePanel,
-  DisclosureButton,
-  Popover,
-  PopoverGroup,
-  PopoverPanel,
-  PopoverButton
-} from "@headlessui/vue"
 </script>
