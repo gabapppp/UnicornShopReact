@@ -161,8 +161,8 @@
             </PopoverPanel>
           </transition>
         </Popover> -->
-        <a href="/sale" class="text-sm font-semibold leading-6 text-gray-900">New Arrival</a>
-        <a href="/sale" class="text-sm font-semibold leading-6 text-gray-900">Sales</a>
+        <a href="/new" class="text-sm font-semibold leading-6 text-gray-900">New Arrival</a>
+        <a href="/sales" class="text-sm font-semibold leading-6 text-gray-900">Sales</a>
         <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About Us</a>
       </PopoverGroup>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end space-x-4 space-x-reverse">
@@ -296,6 +296,16 @@ import {
   //   PlayCircleIcon,
 } from "@heroicons/vue/20/solid";
 
+import { storeToRefs } from 'pinia';
+
+import { useAuthStore } from '@/stores';
+
+
+const authStore = useAuthStore();
+const { user: authUser } = storeToRefs(authStore);
+
+console.log(authUser)
+
 const MenProducts = [
   {
     name: "Tees",
@@ -343,7 +353,7 @@ const MenProducts = [
 
 ];
 const MenCallsToAction = [
-  { name: "All Men Product", href: "#", icon: ArrowRightCircleIcon },
+  { name: "All Men Product", href: "/men", icon: ArrowRightCircleIcon },
 ];
 
 const WomenProducts = [
@@ -404,7 +414,7 @@ const WomenProducts = [
 
 ];
 const WomenCallsToAction = [
-  { name: "All Women Product", href: "#", icon: ArrowRightCircleIcon },
+  { name: "All Women Product", href: "/women", icon: ArrowRightCircleIcon },
 ];
 
 const mobileMenuOpen = ref(false);

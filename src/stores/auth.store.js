@@ -1,33 +1,33 @@
 import { defineStore } from 'pinia';
 
-import { fetchWrapper, router } from '@/helpers';
-
-const baseUrl = `${import.meta.env.VITE_API_URL}/users`;
-
-export const useAuthStore = defineStore({
-    id: 'auth',
+export const useAuthStore = defineStore('auth', {
     state: () => ({
-        // initialize state from local storage to enable user to stay logged in
-        user: JSON.parse(localStorage.getItem('user')),
-        returnUrl: null
+        token: localStorage.getItem('token') || null,
+        storedUser: localStorage.getItem('user') || null
     }),
-    actions: {
-        async login(username, password) {
-            const user = await fetchWrapper.post(`${baseUrl}/authenticate`, { username, password });
-
-            // update pinia state
-            this.user = user;
-
-            // store user details and jwt in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-
-            // redirect to previous url or default to home page
-            router.push(this.returnUrl || '/');
+    getters: {
+        user: state => {
+            if (!!state.storedUser) {
+                return JSON.parse(state.storedUser);
+            }
+            return state.storedUser;
         },
-        logout() {
-            this.user = null;
-            localStorage.removeItem('user');
-            router.push('/login');
+        userIsAuth: state => !!state.token
+    },
+    actions: {
+        storeLoggedInUser(token, user) {
+            const _this = this;
+
+            // Save the token to localStorage
+            localStorage.setItem('token', token);
+
+            // Save the user to localStorage
+            const stringifiedUser = JSON.stringify(user);
+            localStorage.setItem('user', stringifiedUser);
+
+            // Save the token and user to the store ktate
+            _this.token = token;
+            _this.storedUser = stringifiedUser;
         }
     }
 });
