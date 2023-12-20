@@ -42,7 +42,7 @@
             leave-to-class="opacity-0 translate-y-1"
           >
             <PopoverPanel
-              class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+              class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-xs overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
             >
               <div class="p-2">
                 <div
@@ -111,7 +111,7 @@
             leave-to-class="opacity-0 translate-y-1"
           >
             <PopoverPanel
-              class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+              class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-xs overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
             >
               <div class="p-4">
                 <div
@@ -399,8 +399,6 @@ import {
 } from "@heroicons/vue/24/outline";
 import {
   ChevronDownIcon,
-//   PhoneIcon,
-//   PlayCircleIcon,
 } from "@heroicons/vue/20/solid";
 
 const MenProducts = [
@@ -408,13 +406,13 @@ const MenProducts = [
     name: "Tees",
     // description: "Get a better understanding of your traffic",
     href: "#",
-    icon: ChartPieIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Polos",
     // description: "Speak directly to your customers",
     href: "#",
-    icon: CursorArrowRaysIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Shirts",
@@ -433,13 +431,13 @@ const MenProducts = [
     name: "Jackets",
     // description: "Connect with third-party tools",
     href: "#",
-    icon: SquaresPlusIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Pants",
     // description: "Your customers’ data will be safe and secure",
     href: "#",
-    icon: FingerPrintIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Shorts",
@@ -458,19 +456,19 @@ const WomenProducts = [
     name: "Dress",
     // description: "Get a better understanding of your traffic",
     href: "#",
-    icon: ChartPieIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Tees",
     // description: "Get a better understanding of your traffic",
     href: "#",
-    icon: ChartPieIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Polos",
     // description: "Speak directly to your customers",
     href: "#",
-    icon: CursorArrowRaysIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Shirts",
@@ -488,19 +486,19 @@ const WomenProducts = [
     name: "Jackets",
     // description: "Connect with third-party tools",
     href: "#",
-    icon: SquaresPlusIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Pants",
     // description: "Your customers’ data will be safe and secure",
     href: "#",
-    icon: FingerPrintIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Skirt",
     // description: "Get a better understanding of your traffic",
     href: "#",
-    icon: ChartPieIcon,
+    icon: ArrowPathIcon,
   },
   {
     name: "Shorts",
