@@ -1,7 +1,3 @@
-<script setup>
-import ProductList from "../components/ProductList.vue";
-</script>
-
 <template>
   <div>
     <img src="../assets/salebanner.png" />
@@ -27,9 +23,14 @@ import ProductList from "../components/ProductList.vue";
       <ProductList />
     </div>
   </div>
-  <div class="py-4">
-    <h2 class="text-2xl text-center font-bold tracking-tight text-gray-900">
-      All product ->
-    </h2>
+  <div class="py-4 text-center">
+    <a href="/new">
+      New Arrivals, click here
+    </a>
   </div>
 </template>
+
+<script setup>
+import ProductList from "../components/ProductList.vue";
+</script>
+
