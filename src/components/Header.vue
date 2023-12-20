@@ -27,9 +27,9 @@
             leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
             <PopoverPanel
               class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-              <div class="p-4">
-                <div v-for="item in products" :key="item.name"
-                  class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+              <div class="p-2">
+                <div v-for="item in MenProducts" :key="item.name"
+                  class="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50">
                   <div
                     class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                     <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -44,9 +44,9 @@
                   </div>
                 </div>
               </div>
-              <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                <a v-for="item in callsToAction" :key="item.name" :href="item.href"
-                  class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
+              <div class="divide-x divide-gray-900/5 bg-gray-50">
+                <a v-for="item in MenCallsToAction" :key="item.name" :href="item.href"
+                  class="flex items-center justify-center gap-x-2.5 p-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
                   <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                   {{ item.name }}
                 </a>
@@ -66,8 +66,8 @@
             <PopoverPanel
               class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
               <div class="p-4">
-                <div v-for="item in products" :key="item.name"
-                  class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                <div v-for="item in WomenProducts" :key="item.name"
+                  class="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50">
                   <div
                     class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                     <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -82,9 +82,9 @@
                   </div>
                 </div>
               </div>
-              <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                <a v-for="item in callsToAction" :key="item.name" :href="item.href"
-                  class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
+              <div class="divide-x divide-gray-900/5 bg-gray-50">
+                <a v-for="item in WomenCallsToAction" :key="item.name" :href="item.href"
+                  class="flex items-center justify-center gap-x-2.5 p-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
                   <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                   {{ item.name }}
                 </a>
@@ -92,27 +92,48 @@
             </PopoverPanel>
           </transition>
         </Popover>
-        <Popover class="relative">
-          <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-            Unisex
-            <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+        <!-- <Popover class="relative">
+          <PopoverButton
+            class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
+          >
+            New Arrival
+            <ChevronDownIcon
+              class="h-5 w-5 flex-none text-gray-400"
+              aria-hidden="true"
+            />
           </PopoverButton>
 
-          <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1"
-            enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
-            leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+          <transition
+            enter-active-class="transition ease-out duration-200"
+            enter-from-class="opacity-0 translate-y-1"
+            enter-to-class="opacity-100 translate-y-0"
+            leave-active-class="transition ease-in duration-150"
+            leave-from-class="opacity-100 translate-y-0"
+            leave-to-class="opacity-0 translate-y-1"
+          >
             <PopoverPanel
-              class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+              class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+            >
               <div class="p-4">
-                <div v-for="item in products" :key="item.name"
-                  class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                <div
+                  v-for="item in KidProducts"
+                  :key="item.name"
+                  class="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
+                >
                   <div
-                    class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                    <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-                      aria-hidden="true" />
+                    class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
+                  >
+                    <component
+                      :is="item.icon"
+                      class="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div class="flex-auto">
-                    <a :href="item.href" class="block font-semibold text-gray-900">
+                    <a
+                      :href="item.href"
+                      class="block font-semibold text-gray-900"
+                    >
                       {{ item.name }}
                       <span class="absolute inset-0" />
                     </a>
@@ -120,17 +141,28 @@
                   </div>
                 </div>
               </div>
-              <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                <a v-for="item in callsToAction" :key="item.name" :href="item.href"
-                  class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
-                  <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              <div
+                class="divide-x divide-gray-900/5 bg-gray-50"
+              >
+                <a
+                  v-for="item in KidCallsToAction"
+                  :key="item.name"
+                  :href="item.href"
+                  class="flex items-center justify-center gap-x-2.5 p-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                >
+                  <component
+                    :is="item.icon"
+                    class="h-5 w-5 flex-none text-gray-400"
+                    aria-hidden="true"
+                  />
                   {{ item.name }}
                 </a>
               </div>
             </PopoverPanel>
           </transition>
-        </Popover>
-        <a href="/sales" class="text-sm font-semibold leading-6 text-gray-900">Sales</a>
+        </Popover> -->
+        <a href="/sale" class="text-sm font-semibold leading-6 text-gray-900">New Arrival</a>
+        <a href="/sale" class="text-sm font-semibold leading-6 text-gray-900">Sales</a>
         <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About Us</a>
       </PopoverGroup>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end space-x-4 space-x-reverse">
@@ -189,19 +221,28 @@
                     class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     {{ item.name }}</DisclosureButton>
                 </DisclosurePanel>
-                <DisclosureButton
-                  class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                <!-- <DisclosureButton
+                  class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
                   Unisex
-                  <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
+                  <ChevronDownIcon
+                    :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']"
+                    aria-hidden="true"
+                  />
                 </DisclosureButton>
                 <DisclosurePanel class="mt-2 space-y-2">
-                  <DisclosureButton v-for="item in [...products, ...callsToAction]" :key="item.name" as="a"
+                  <DisclosureButton
+                    v-for="item in [...products, ...callsToAction]"
+                    :key="item.name"
+                    as="a"
                     :href="item.href"
-                    class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                    {{ item.name }}</DisclosureButton>
-                </DisclosurePanel>
+                    class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    {{ item.name }}</DisclosureButton
+                  >
+                </DisclosurePanel> -->
               </Disclosure>
-              <a href="/sales"
+              <a href="/sale"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sales</a>
               <a href="#"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About
@@ -224,21 +265,9 @@
 </template>
 
 <script setup>
-import ShopingCart from "./ShopingCart.vue";
 import IconCart from "./icons/IconCart.vue";
 import IconSearch from "./icons/IconSearch.vue";
 import IconAvatar from "./icons/IconAvatar.vue";
-import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel,
-} from "@headlessui/vue";
 import { ref } from "vue";
 import {
   ArrowPathIcon,
@@ -248,49 +277,135 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
+  ArrowRightCircleIcon,
 } from "@heroicons/vue/24/outline";
 import {
   ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
+  //   PhoneIcon,
+  //   PlayCircleIcon,
 } from "@heroicons/vue/20/solid";
 
-const products = [
+const MenProducts = [
   {
-    name: "Analytics",
-    description: "Get a better understanding of your traffic",
+    name: "Tees",
+    // description: "Get a better understanding of your traffic",
     href: "#",
     icon: ChartPieIcon,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers",
+    name: "Polos",
+    // description: "Speak directly to your customers",
     href: "#",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
+    name: "Shirts",
+    // description: "Build strategic funnels that will convert",
     href: "#",
-    icon: FingerPrintIcon,
+    icon: ArrowPathIcon,
+  },
+
+  {
+    name: "Sweaters",
+    // description: "Build strategic funnels that will convert",
+    href: "#",
+    icon: ArrowPathIcon,
   },
   {
-    name: "Integrations",
-    description: "Connect with third-party tools",
+    name: "Jackets",
+    // description: "Connect with third-party tools",
     href: "#",
     icon: SquaresPlusIcon,
   },
   {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
+    name: "Pants",
+    // description: "Your customers’ data will be safe and secure",
+    href: "#",
+    icon: FingerPrintIcon,
+  },
+  {
+    name: "Shorts",
+    // description: "Build strategic funnels that will convert",
     href: "#",
     icon: ArrowPathIcon,
   },
+
 ];
-const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
+const MenCallsToAction = [
+  { name: "All Men Product", href: "#", icon: ArrowRightCircleIcon },
+];
+
+const WomenProducts = [
+  {
+    name: "Dress",
+    // description: "Get a better understanding of your traffic",
+    href: "#",
+    icon: ChartPieIcon,
+  },
+  {
+    name: "Tees",
+    // description: "Get a better understanding of your traffic",
+    href: "#",
+    icon: ChartPieIcon,
+  },
+  {
+    name: "Polos",
+    // description: "Speak directly to your customers",
+    href: "#",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Shirts",
+    // description: "Build strategic funnels that will convert",
+    href: "#",
+    icon: ArrowPathIcon,
+  },
+  {
+    name: "Sweaters",
+    // description: "Build strategic funnels that will convert",
+    href: "#",
+    icon: ArrowPathIcon,
+  },
+  {
+    name: "Jackets",
+    // description: "Connect with third-party tools",
+    href: "#",
+    icon: SquaresPlusIcon,
+  },
+  {
+    name: "Pants",
+    // description: "Your customers’ data will be safe and secure",
+    href: "#",
+    icon: FingerPrintIcon,
+  },
+  {
+    name: "Skirt",
+    // description: "Get a better understanding of your traffic",
+    href: "#",
+    icon: ChartPieIcon,
+  },
+  {
+    name: "Shorts",
+    // description: "Build strategic funnels that will convert",
+    href: "#",
+    icon: ArrowPathIcon,
+  },
+
+];
+const WomenCallsToAction = [
+  { name: "All Women Product", href: "#", icon: ArrowRightCircleIcon },
 ];
 
 const mobileMenuOpen = ref(false);
+import {
+  Dialog,
+  DialogPanel,
+  Disclosure,
+  DisclosurePanel,
+  DisclosureButton,
+  Popover,
+  PopoverGroup,
+  PopoverPanel,
+  PopoverButton
+} from "@headlessui/vue"
 </script>
