@@ -32,6 +32,5 @@
 
 <script setup>
 import ProductList from "../components/ProductList.vue";
-import { ArrowRightIcon } from "@heroicons/vue/24/outline";
 </script>
 
