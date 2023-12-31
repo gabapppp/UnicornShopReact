@@ -169,14 +169,17 @@
         <a href="#" class="text-sm -m-1.5 p-1.5">
           <IconSearch />
         </a>
-        <a href="#" class="text-sm -m-1.5 p-1.5">
+        <a @click="cartStore.setCartOpen()" class="text-sm -m-1.5 p-1.5">
           <IconCart />
         </a>
-        <a href="#" class="hidden text-sm -m-1.5 p-1.5">
-          <IconAvatar />
+        <a v-if="authStore.userIsAuth" href="/profile" class="text-sm font-semibold leading-6 text-gray-900">
+          {{ authStore.user.username }}
         </a>
-        <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+        <a v-if="!authStore.userIsAuth" href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
             aria-hidden="true">&rarr;</span></a>
+        <a v-if="authStore.userIsAuth" @click="authStore.logout()"
+          class="text-sm font-semibold leading-6 text-gray-900">Log
+          out <span aria-hidden="true">&rarr;</span></a>
       </div>
     </nav>
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -203,7 +206,7 @@
                   <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                 </DisclosureButton>
                 <DisclosurePanel class="mt-2 space-y-2">
-                  <DisclosureButton v-for="item in [...products, ...callsToAction]" :key="item.name" as="a"
+                  <DisclosureButton v-for="item in [...MenProducts, ...MenCallsToAction]" :key="item.name" as="a"
                     :href="item.href"
                     class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     {{ item.name }}</DisclosureButton>
@@ -216,7 +219,7 @@
                   <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                 </DisclosureButton>
                 <DisclosurePanel class="mt-2 space-y-2">
-                  <DisclosureButton v-for="item in [...products, ...callsToAction]" :key="item.name" as="a"
+                  <DisclosureButton v-for="item in [...WomenProducts, ...WomenCallsToAction]" :key="item.name" as="a"
                     :href="item.href"
                     class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     {{ item.name }}</DisclosureButton>
@@ -242,32 +245,40 @@
                   >
                 </DisclosurePanel> -->
               </Disclosure>
-              <a href="/sale"
+              <a href="/new"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">New
+                Arrival</a>
+              <a href="/sales"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sales</a>
-              <a href="#"
+              <a href="/about"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About
                 Us</a>
             </div>
             <div class="py-6">
               <a href="/about"
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Search</a>
-              <a href="#"
+              <a @click="cartStore.setCartOpen()"
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Cart</a>
-              <a href="/login"
+              <a href="/profile" v-if="authStore.userIsAuth"
+                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{
+                  authStore.user.username }}</a>
+              <a href="/login" v-if="!authStore.userIsAuth"
+                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Login</a>
+              <a v-if="authStore.userIsAuth" @click="authStore.logout()"
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                in</a>
+                out</a>
             </div>
           </div>
         </div>
       </DialogPanel>
     </Dialog>
   </header>
+  <ShopingCart></ShopingCart>
 </template>
 
 <script setup>
 import IconCart from "./icons/IconCart.vue";
 import IconSearch from "./icons/IconSearch.vue";
-import IconAvatar from "./icons/IconAvatar.vue";
 import { ref } from "vue";
 import {
   Dialog,
@@ -293,17 +304,12 @@ import {
 import {
   ChevronDownIcon,
 } from "@heroicons/vue/20/solid";
+import ShopingCart from "./ShopingCart.vue";
 
-import { storeToRefs } from 'pinia';
-
-import { useAuthStore } from '@/stores';
-
+import { useAuthStore, useCartStore } from '@/stores';
 
 const authStore = useAuthStore();
-const { user: authUser } = storeToRefs(authStore);
-
-console.log(authUser)
-
+const cartStore = useCartStore();
 const MenProducts = [
   {
     name: "Tees",
@@ -409,8 +415,8 @@ const WomenProducts = [
     href: "#",
     icon: ArrowPathIcon,
   },
-
 ];
+
 const WomenCallsToAction = [
   { name: "All Women Product", href: "/women", icon: ArrowRightCircleIcon },
 ];

@@ -1,17 +1,3 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
     <div class="bg-white">
         <div>
@@ -174,6 +160,7 @@
                         <!-- Product grid -->
                         <div class="lg:col-span-3">
                             <!-- Your content -->
+                            <ProductList :products="products"></ProductList>
                         </div>
                     </div>
                 </section>
@@ -208,11 +195,11 @@ const sortOptions = [
     { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-    { name: 'Totes', href: '#' },
-    { name: 'Backpacks', href: '#' },
-    { name: 'Travel Bags', href: '#' },
-    { name: 'Hip Bags', href: '#' },
-    { name: 'Laptop Sleeves', href: '#' },
+    { name: 'Men', href: '#' },
+    { name: 'Women', href: '#' },
+    { name: 'Skirt', href: '#' },
+    { name: 'Dress', href: '#' },
+    // { name: '', href: '#' },
 ]
 const filters = [
     {
@@ -231,26 +218,52 @@ const filters = [
         id: 'category',
         name: 'Category',
         options: [
-            { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-            { value: 'sale', label: 'Sale', checked: false },
-            { value: 'travel', label: 'Travel', checked: true },
-            { value: 'organization', label: 'Organization', checked: false },
-            { value: 'accessories', label: 'Accessories', checked: false },
+            { value: 'Tees', label: 'Tees', checked: false },
+            { value: 'Polos', label: 'Polos', checked: false },
+            { value: 'Shirts', label: 'Shirts', checked: true },
+            { value: 'Sweaters', label: 'Sweaters', checked: false },
+            { value: 'Jackets', label: 'Jackets', checked: false },
+            { value: 'Pants', label: 'Pants', checked: false },
+            { value: 'Shorts', label: 'Shorts', checked: false },
         ],
     },
     {
         id: 'size',
         name: 'Size',
         options: [
-            { value: '2l', label: '2L', checked: false },
-            { value: '6l', label: '6L', checked: false },
-            { value: '12l', label: '12L', checked: false },
-            { value: '18l', label: '18L', checked: false },
-            { value: '20l', label: '20L', checked: false },
-            { value: '40l', label: '40L', checked: true },
+            { value: 'XS', label: 'XS', checked: false },
+            { value: 'S', label: 'S', checked: false },
+            { value: 'M', label: 'M', checked: false },
+            { value: 'L', label: 'L', checked: false },
+            { value: 'XL', label: 'XL', checked: false },
+            { value: 'XXL', label: 'XXL', checked: true },
         ],
     },
 ]
 
 const mobileFiltersOpen = ref(false)
+</script>
+
+<script>
+import axios from 'axios'
+import ProductList from '../components/ProductList.vue'
+export default {
+    components: {
+        ProductList,
+    },
+    data() {
+        return {
+            products: null,
+
+        }
+    },
+    mounted() {
+        const API_URL = "http://localhost:5000/api/product"
+        axios.get(API_URL + "?page=0&size=12").then(response => {
+            this.products = response.data.docs
+        }).catch(e => {
+            console.log(e)
+        })
+    }
+}
 </script>
