@@ -44,9 +44,9 @@ export const router = createRouter({
       component: () => import('../views/LogIn.vue'),
       beforeEnter: (to, from, next) => {
         // Install the user store
-        const userStore = useAuthStore();
+        const authStore = useAuthStore();
         // Redirect if user is authenticated
-        if (userStore.userIsAuth === true) {
+        if (authStore.userIsAuth === true) {
           return next('/');
         }
         // Allow route entry if user is not authenticated
@@ -99,9 +99,14 @@ export const router = createRouter({
         return next();
       }
     },
+    // {
+    //   path: '/product',
+    //   name: 'product',
+    //   component: () => import('../views/ProductView.vue')
+    // },
     {
-      path: '/product',
-      name: 'product',
+      path: '/products/:id',
+      name: 'product detail id',
       component: () => import('../views/ProductView.vue')
     },
     {

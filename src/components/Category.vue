@@ -217,11 +217,13 @@ const filters = [
         id: 'category',
         name: 'Category',
         options: [
-            { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-            { value: 'sale', label: 'Sale', checked: false },
-            { value: 'travel', label: 'Travel', checked: true },
-            { value: 'organization', label: 'Organization', checked: false },
-            { value: 'accessories', label: 'Accessories', checked: false },
+            { value: 'Tees', label: 'New Arrivals', checked: false },
+            { value: 'Polos', label: 'Sale', checked: false },
+            { value: 'Shirts', label: 'Travel', checked: true },
+            { value: 'Sweaters', label: 'Organization', checked: false },
+            { value: 'Jackets', label: 'Accessories', checked: false },
+            { value: 'Pants', label: 'Accessories', checked: false },
+            { value: 'Shorts', label: 'Accessories', checked: false },
         ],
     },
     {

@@ -1,8 +1,6 @@
 <template>
   <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-        alt="Your Company" />
       <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Log in to your account
       </h2>
@@ -52,7 +50,7 @@
 <script>
 import axios from "axios";
 import { useAuthStore } from '@/stores';
-import router from "vue-router";
+import { router } from "@/helpers";
 const authStore = useAuthStore();
 export default {
   name: 'Login',
@@ -69,7 +67,7 @@ export default {
       const data = { email: this.email, password: this.password }
       await axios.post(API_URL, data).then((response) => {
         console.log(response);
-        authStore.storeLoggedInUser(response.data.token, response.data.user)
+        authStore.storeLoggedInUser(response.data.tokens, response.data.user)
         router.push("/");
       }).catch((e) => {
         console.log(e);
